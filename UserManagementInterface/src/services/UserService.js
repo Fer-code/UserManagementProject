@@ -1,5 +1,27 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
+export class ApiError extends Error {
+  constructor(message, errors = null) {
+    super(message);
+    this.name = "ApiError";
+    this.errors = errors;
+  }
+}
+
+function buildMessage(data) {
+  if (data?.errors && typeof data.errors === "object") {
+    const messages = Object.values(data.errors).flat();
+    if (messages.length > 0) return messages.join(" ");
+  }
+
+  return (
+    data?.message ||
+    data?.detail ||
+    data?.title ||
+    "Erro ao realizar a operação."
+  );
+}
+
 async function request(endpoint = "", options = {}) {
   const response = await fetch(`${API_URL}/users${endpoint}`, {
     ...options,
@@ -9,23 +31,25 @@ async function request(endpoint = "", options = {}) {
     },
   });
 
-  const data = await response.json();
+  // Lê como texto: tolera 204 (corpo vazio) e respostas que não são JSON
+  const text = await response.text();
 
-    if (!response.ok) {
-        throw new Error(
-            data.message ||
-            data.detail ||
-            data.title ||
-            "Erro ao realizar a operação."
-        );
+  let data = null;
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { message: text };
     }
+  }
 
-    console.log(data);
+  if (!response.ok) {
+    throw new ApiError(buildMessage(data), data?.errors ?? null);
+  }
 
-    return data;
+  return data;
 }
 
-// Consultando endpoints
 export const userService = {
   getAll() {
     return request();
