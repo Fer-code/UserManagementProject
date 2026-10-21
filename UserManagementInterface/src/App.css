@@ -1,0 +1,297 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.page-header,
+.table-header,
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5264c8;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 8px 0;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.subtitle,
+.table-header p,
+.modal-header p {
+  color: #778196;
+  font-size: 14px;
+  margin: 0;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  color: white;
+  background: #4254b8;
+}
+
+.btn-primary:hover {
+  background: #34449b;
+}
+
+.btn-secondary {
+  background: white;
+  color: #344054;
+  border-color: #d7dce5;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e7eaf0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+.table-header {
+  padding: 24px;
+}
+
+.search-input {
+  width: 320px;
+  max-width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #dce1ea;
+  border-radius: 8px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 16px 20px;
+  border-top: 1px solid #edf0f4;
+  font-size: 13px;
+}
+
+th {
+  background: #fafbfc;
+  color: #667085;
+  font-weight: 600;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.active {
+  background: #e5f7ee;
+  color: #087a45;
+}
+
+.inactive {
+  background: #f3f4f6;
+  color: #667085;
+}
+
+.row-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-text {
+  padding: 4px;
+  background: transparent;
+  color: #4254b8;
+  border: none;
+  font-weight: 600;
+}
+
+.danger {
+  color: #c23838;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px;
+  color: #778196;
+}
+
+.alert {
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.alert-error {
+  background: #fef0f0;
+  color: #b42318;
+}
+
+.alert-success {
+  background: #ecfdf3;
+  color: #067647;
+}
+
+/* Modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(16, 24, 40, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  padding: 28px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  margin-bottom: 28px;
+}
+
+.close-button {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: #667085;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 14px;
+  border: 1px solid #dce1ea;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  font: inherit;
+}
+
+.form-group input:focus,
+.search-input:focus {
+  border-color: #4254b8;
+  outline: 2px solid rgba(66, 84, 184, 0.12);
+}
+
+.status-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status.active {
+  background-color: #e6f7ec;
+  color: #1a7f45;
+}
+
+.status.inactive {
+  background-color: #eef0f4;
+  color: #5b6475;
+}
+
+.status.blocked {
+  background-color: #fdeaea;
+  color: #c62828;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 24px 16px;
+  }
+
+  .page-header,
+  .table-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}
